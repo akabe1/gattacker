@@ -2,9 +2,9 @@
 
 
 ## CUSTOM DESCRIPTION
-A customization of the forked wonderful Gattacker tool.
+This forked repo contains a customization of the wonderful Gattacker tool.
 
-The new tool "master-interactive.js" was added, it provides a master intercative command prompt which could be useful to interact directly with the slave BLE peripheral SmartLock device. 
+The new tool "master-interactive.js" was added, it provides a master interactive command prompt which could be useful to interact directly with the slave BLE peripheral SmartLock device. 
 
 For more information about usage please read the "Description & Usage" section on the master-interactive.js file.
  
