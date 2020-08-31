@@ -214,6 +214,11 @@ let askQuestionForActionKey = () => {
     return new Promise( (res, rej) => {
         rl.question('Action: ', actionKey => {
             actionKeyValue = actionKey;
+            if ( (arrayOfActions.indexOf(actionKeyValue) > -1) && (typeof inputData === 'undefined') ) {
+                console.log('You have to specify the commands input file for the selected action, exiting.');
+                wsclient.clientConnection(masterAddress,false);
+                process.exit(-1);
+            }
             if ( (actionKeyValue == 'Open' && open_list.length < 4) || 
                 (actionKeyValue == 'Close' && close_list.length < 4) || 
                 (actionKeyValue == 'Authentication' && get_challenge_list.length < 3) || 
@@ -221,11 +226,6 @@ let askQuestionForActionKey = () => {
                 (actionKeyValue == 'Sync' && sync_subscribe_list.length < 3) || 
                 (actionKeyValue == 'Sync' && sync_write_list.length < 4) ) {
                 console.log('Missing parameters in commands file for the selected action, exiting.');
-                wsclient.clientConnection(masterAddress,false);
-                process.exit(-1);
-            }
-            if ( (arrayOfActions.indexOf(actionKeyValue) > -1) && (typeof inputData === 'undefined') ) {
-                console.log('You have to specify the commands input file for the selected action, exiting.');
                 wsclient.clientConnection(masterAddress,false);
                 process.exit(-1);
             }
